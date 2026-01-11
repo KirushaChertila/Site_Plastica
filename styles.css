@@ -67,43 +67,43 @@ h2 {
 
 @font-face {
   font-family: 'Roboto';
-  src: url(/fonts/Roboto-Regular.ttf), url(/fonts/Roboto-Regular.woff);
+  src: url(fonts/Roboto-Regular.ttf), url(fonts/Roboto-Regular.woff);
   font-weight: 400;
 }
 
 @font-face {
   font-family: 'Roboto-ExtraBold';
-  src: url(/fonts/Roboto-ExtraBold.ttf), url(/fonts/Roboto-ExtraBold.woff);
+  src: url(fonts/Roboto-ExtraBold.ttf), url(fonts/Roboto-ExtraBold.woff);
   font-weight: 800;
 }
 
 @font-face {
   font-family: 'Geologica';
-  src: url(/fonts/Geologica_Auto-Regular.ttf), url(/fonts/RobotoCondensed-Regular.woff);
+  src: url(fonts/Geologica_Auto-Regular.ttf), url(fonts/RobotoCondensed-Regular.woff);
   font-weight: 400;
 }
 
 @font-face {
   font-family: 'Roboto-Condensed';
-  src: url(/fonts/RobotoCondensed-Regular.ttf), url(/fonts/RobotoCondensed-Regular.woff);
+  src: url(fonts/RobotoCondensed-Regular.ttf), url(fonts/RobotoCondensed-Regular.woff);
   font-weight: 400;
 }
 
 @font-face {
   font-family: 'Circe-Regular';
-  src: url(/fonts/circe.ttf), url(/fonts/circe.woff);
+  src: url(fonts/circe.ttf), url(fonts/circe.woff);
   font-weight: 400;
 }
 
 @font-face {
   font-family: 'Circe-Light';
-  src: url(/fonts/circe_light.ttf), url(/fonts/circe_light.woff);
+  src: url(fonts/circe_light.ttf), url(fonts/circe_light.woff);
   font-weight: 300;
 }
 
 @font-face {
   font-family: 'Circe-Bold';
-  src: url(/fonts/circe_bold.ttf), url(/fonts/circe_bold.woff);
+  src: url(fonts/circe_bold.ttf), url(fonts/circe_bold.woff);
   font-weight: 700;
 }
 
