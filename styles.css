@@ -517,7 +517,7 @@ h2 {
   margin-left: 16px;
   margin-right: 16px;
   height: 191px;
-  background-image: url(/Images/Rectangle\ 2.svg);
+  background-image: url(images/rectangle2.svg);
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
@@ -769,7 +769,7 @@ h2 {
   justify-content: center;
   text-align: center;
   align-items: center;
-  background-image: url(/Images/star.svg);
+  background-image: url(images/star.svg);
   width: 48px;
   height: 48px;
 }
@@ -833,7 +833,7 @@ h2 {
   margin-left: 16px;
   margin-right: 16px;
   height: 212px;
-  background-image: url(/Images/Rectangle\ 3.svg);
+  background-image: url(images/rectangle3.svg);
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
