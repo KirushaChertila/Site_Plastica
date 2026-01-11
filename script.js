@@ -24,41 +24,41 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   const indicators = document.querySelectorAll('.story_indicator');
 
-  // 🔥 Основная функция
+  // Основная функция
   const showSlide = (index) => {
     clearTimeout(storyTimer);
 
-    // Сбрасываем предыдущие состояния
-    slides.forEach(slide => slide.classList.remove('active'));
+  // Сбрасываем предыдущие состояния
+  slides.forEach(slide => slide.classList.remove('active'));
     indicators.forEach(ind => {
       ind.classList.remove('active');
       while (ind.firstChild) ind.removeChild(ind.firstChild);
     });
 
-    currentSlideIndex = index;
-    slides[index].classList.add('active');
-    indicators[index].classList.add('active');
+  currentSlideIndex = index;
+  slides[index].classList.add('active');
+  indicators[index].classList.add('active');
 
-    // Создаём прогресс-бар с правильной длительностью
-    const progress = document.createElement('div');
-    progress.style.position = 'absolute';
-    progress.style.top = '0';
-    progress.style.left = '0';
-    progress.style.height = '100%';
-    progress.style.width = '0%';
-    progress.style.backgroundColor = 'white';
-    progress.style.transition = `width ${slideDuration}ms linear`;
-    indicators[index].appendChild(progress);
+  // Создаём прогресс-бар с правильной длительностью
+  const progress = document.createElement('div');
+  progress.style.position = 'absolute';
+  progress.style.top = '0';
+  progress.style.left = '0';
+  progress.style.height = '100%';
+  progress.style.width = '0%';
+  progress.style.backgroundColor = 'white';
+  progress.style.transition = `width ${slideDuration}ms linear`;
+  indicators[index].appendChild(progress);
 
-    // Запускаем анимацию заполнения
+  // Запускаем анимацию заполнения
     setTimeout(() => {
       progress.style.width = '100%';
     }, 10);
 
-    // Позиционируем слайд
-    storiesSlides.style.transform = `translateX(-${index * 100}%)`;
+  // Позиционируем слайд
+  storiesSlides.style.transform = `translateX(-${index * 100}%)`;
 
-    // Таймер для следующего слайда
+  // Таймер для следующего слайда
     storyTimer = setTimeout(() => {
       nextSlide();
     }, slideDuration);
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (slideIndex >= 0 && slideIndex < totalSlides) {
         storiesModalOverlay.style.display = 'flex';
         showSlide(slideIndex);
-        disableBodyScroll(); // 🔒 блокируем прокрутку
+        disableBodyScroll();
       }
     });
   });
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeStories = () => {
     storiesModalOverlay.style.display = 'none';
     clearTimeout(storyTimer);
-    enableBodyScroll(); // 🔓 разблокируем прокрутку
+    enableBodyScroll();
   };
 
   if (storiesClose) {
