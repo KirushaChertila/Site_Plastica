@@ -594,15 +594,13 @@ h2 {
   width: 57px;
 }
 
-.year_group,
-.year_group_2,
-.year_group_3 {
+.year_group {
   display: flex;
   width: 100%;
   margin-bottom: 30px;
 }
 
-.year_group_3:last-child {
+.year_group:last-child {
   margin-bottom: 0px;
 }
 
