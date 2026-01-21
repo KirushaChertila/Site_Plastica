@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const slides = document.querySelectorAll('.story_slide');
   const totalSlides = slides.length;
 
-  // Создаём индикаторы
+  // Индикаторы
   if (storiesIndicators.children.length === 0) {
     slides.forEach((_, index) => {
       const indicator = document.createElement('div');
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const showSlide = (index) => {
     clearTimeout(storyTimer);
 
-  // Сбрасываем предыдущие состояния
+  // Сброс предыдущих состояний
   slides.forEach(slide => slide.classList.remove('active'));
     indicators.forEach(ind => {
       ind.classList.remove('active');
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
   slides[index].classList.add('active');
   indicators[index].classList.add('active');
 
-  // Создаём прогресс-бар с правильной длительностью
+  // Прогресс-бар
   const progress = document.createElement('div');
   progress.style.position = 'absolute';
   progress.style.top = '0';
@@ -50,12 +50,12 @@ document.addEventListener('DOMContentLoaded', () => {
   progress.style.transition = `width ${slideDuration}ms linear`;
   indicators[index].appendChild(progress);
 
-  // Запускаем анимацию заполнения
+  // Запуск анимации заполнения
     setTimeout(() => {
       progress.style.width = '100%';
     }, 10);
 
-  // Позиционируем слайд
+  // Позиия слайда
   storiesSlides.style.transform = `translateX(-${index * 100}%)`;
 
   // Таймер для следующего слайда
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Управление прокруткой body
   const disableBodyScroll = () => {
     document.body.style.overflow = 'hidden';
-    document.body.style.paddingRight = '0'; // или добавьте компенсацию, если есть скроллбар
+    document.body.style.paddingRight = '0';
   };
 
   const enableBodyScroll = () => {
@@ -93,6 +93,26 @@ document.addEventListener('DOMContentLoaded', () => {
         storiesModalOverlay.style.display = 'flex';
         showSlide(slideIndex);
         disableBodyScroll();
+        
+        // Обработчики навигации после открытия модалки
+        setTimeout(() => {
+          const navLeft = storiesModalOverlay.querySelector('.stories_nav_left');
+          const navRight = storiesModalOverlay.querySelector('.stories_nav_right');
+          
+          if (navLeft) {
+            navLeft.onclick = (e) => {
+              e.stopPropagation();
+              prevSlide();
+            };
+          }
+          
+          if (navRight) {
+            navRight.onclick = (e) => {
+              e.stopPropagation();
+              nextSlide();
+            };
+          }
+        }, 50);
       }
     });
   });
@@ -113,28 +133,6 @@ document.addEventListener('DOMContentLoaded', () => {
       closeStories();
     }
   });
-
-  // Навигация по краям
-  const storiesContainer = storiesModalOverlay?.querySelector('.stories-container');
-  if (storiesContainer && !storiesContainer.querySelector('.story-nav-left')) {
-    const navLeft = document.createElement('div');
-    navLeft.className = 'story_nav_left';
-    storiesContainer.appendChild(navLeft);
-
-    const navRight = document.createElement('div');
-    navRight.className = 'story_nav_right';
-    storiesContainer.appendChild(navRight);
-
-    navLeft.addEventListener('click', (e) => {
-      e.stopPropagation();
-      prevSlide();
-    });
-
-    navRight.addEventListener('click', (e) => {
-      e.stopPropagation();
-      nextSlide();
-    });
-  }
 
   // Свайпы
   let startX = 0;
